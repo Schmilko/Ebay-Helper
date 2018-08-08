@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  ebayhelper
@@ -5,17 +6,26 @@
 //  Created by Arun Rau on 7/23/18.
 //  Copyright © 2018 Arun Rau. All rights reserved.
 //
-
+//TODO: f
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after application launch
+//        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        FirebaseApp.configure()
+        configureInitialRootViewController(for: window)
+        let database = Database.database()
+//        if let initialViewController = storyboard.instantiateInitialViewController() {
+//            window?.rootViewController = initialViewController
+//            window?.makeKeyAndVisible()
+//
+//        }
         return true
     }
 
@@ -44,3 +54,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    func configureInitialRootViewController(for window: UIWindow?) {
+        let defaults = UserDefaults.standard
+        let initialViewController: UIViewController
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let _ = Auth.auth().currentUser,
+            let userData = defaults.object(forKey: Constants.UserDefaults.currentUser) as? Data,
+            let user = try? JSONDecoder().decode(User.self, from: userData) {
+            User.setCurrent(user)
+            
+            
+            initialViewController = storyboard.instantiateViewController(withIdentifier: <#T##String#>)
+        } else {
+            initialViewController = UIStoryboard.initialViewController(for: .login)
+        }
+        
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+    }
+}
+//
+//extension AppDelegate {
+//    func configureInitialRootViewController(for window: UIWindow?) {
+//        let defaults = UserDefaults.standard
+//
+//
+//
+//        if let user  = Auth.auth().currentUser{
+//
+//            UserService.show(forUID: user.uid) { (user) in
+//
+//                let tv = TestViewController()
+//                window?.rootViewController = tv
+//                window?.makeKeyAndVisible()
+//            }
+//        }
+//        else {
+//            let hub = Hub()
+//            window?.rootViewController = hub
+//            window?.makeKeyAndVisible()
+//        }
+//    }
+//
+//}
