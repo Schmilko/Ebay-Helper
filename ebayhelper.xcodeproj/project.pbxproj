@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		6B65DE75EA912E4060FEFAE5 /* Pods_ebayhelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830BF0F763A5A7C318524EB0 /* Pods_ebayhelper.framework */; };
 		E0181B80211B8E67009AAAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0181B7F211B8E67009AAAA7 /* Main.storyboard */; };
+		E0181B92211BAEFD009AAAA7 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B86211BAEFD009AAAA7 /* YoshikoTextField.swift */; };
+		E0181B93211BAEFD009AAAA7 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B88211BAEFD009AAAA7 /* HoshiTextField.swift */; };
+		E0181B94211BAEFD009AAAA7 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B89211BAEFD009AAAA7 /* MinoruTextField.swift */; };
+		E0181B95211BAEFD009AAAA7 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B8A211BAEFD009AAAA7 /* YokoTextField.swift */; };
+		E0181B96211BAEFD009AAAA7 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B8B211BAEFD009AAAA7 /* TextFieldEffects.swift */; };
+		E0181B97211BAEFD009AAAA7 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B8C211BAEFD009AAAA7 /* JiroTextField.swift */; };
+		E0181B98211BAEFD009AAAA7 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B8D211BAEFD009AAAA7 /* MadokaTextField.swift */; };
+		E0181B99211BAEFD009AAAA7 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B8E211BAEFD009AAAA7 /* KaedeTextField.swift */; };
+		E0181B9A211BAEFD009AAAA7 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B8F211BAEFD009AAAA7 /* AkiraTextField.swift */; };
+		E0181B9B211BAEFD009AAAA7 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0181B90211BAEFD009AAAA7 /* IsaoTextField.swift */; };
+		E0181B9C211BAEFD009AAAA7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0181B91211BAEFD009AAAA7 /* Info.plist */; };
 		E01AE70C2106BF3D009DE772 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01AE70B2106BF3D009DE772 /* Assets.xcassets */; };
 		E01AE70F2106BF3D009DE772 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01AE70D2106BF3D009DE772 /* LaunchScreen.storyboard */; };
 		E05879052114D8D3004B1B20 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05879042114D8D3004B1B20 /* ConfirmationVC.swift */; };
@@ -56,6 +67,18 @@
 		830BF0F763A5A7C318524EB0 /* Pods_ebayhelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ebayhelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E675ABC2EED227EB5C96192 /* Pods-ebayhelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ebayhelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-ebayhelper/Pods-ebayhelper.release.xcconfig"; sourceTree = "<group>"; };
 		E0181B7F211B8E67009AAAA7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E0181B86211BAEFD009AAAA7 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
+		E0181B87211BAEFD009AAAA7 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
+		E0181B88211BAEFD009AAAA7 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		E0181B89211BAEFD009AAAA7 /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
+		E0181B8A211BAEFD009AAAA7 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
+		E0181B8B211BAEFD009AAAA7 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		E0181B8C211BAEFD009AAAA7 /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiroTextField.swift; sourceTree = "<group>"; };
+		E0181B8D211BAEFD009AAAA7 /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
+		E0181B8E211BAEFD009AAAA7 /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaedeTextField.swift; sourceTree = "<group>"; };
+		E0181B8F211BAEFD009AAAA7 /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
+		E0181B90211BAEFD009AAAA7 /* IsaoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsaoTextField.swift; sourceTree = "<group>"; };
+		E0181B91211BAEFD009AAAA7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E01AE7012106BF3C009DE772 /* ebayhelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ebayhelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01AE7042106BF3C009DE772 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E01AE70B2106BF3D009DE772 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +152,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E0181B85211BAEFD009AAAA7 /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				E0181B86211BAEFD009AAAA7 /* YoshikoTextField.swift */,
+				E0181B87211BAEFD009AAAA7 /* TextFieldEffects.h */,
+				E0181B88211BAEFD009AAAA7 /* HoshiTextField.swift */,
+				E0181B89211BAEFD009AAAA7 /* MinoruTextField.swift */,
+				E0181B8A211BAEFD009AAAA7 /* YokoTextField.swift */,
+				E0181B8B211BAEFD009AAAA7 /* TextFieldEffects.swift */,
+				E0181B8C211BAEFD009AAAA7 /* JiroTextField.swift */,
+				E0181B8D211BAEFD009AAAA7 /* MadokaTextField.swift */,
+				E0181B8E211BAEFD009AAAA7 /* KaedeTextField.swift */,
+				E0181B8F211BAEFD009AAAA7 /* AkiraTextField.swift */,
+				E0181B90211BAEFD009AAAA7 /* IsaoTextField.swift */,
+				E0181B91211BAEFD009AAAA7 /* Info.plist */,
+			);
+			path = TextFieldEffects;
+			sourceTree = "<group>";
+		};
 		E01AE6F82106BF3C009DE772 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +201,7 @@
 				E08DD58F2118EBC40076A81A /* Services */,
 				E08DD58E2118EB8D0076A81A /* Models */,
 				E06C4494210846B80012F029 /* Fonts */,
+				E0181B85211BAEFD009AAAA7 /* TextFieldEffects */,
 				E08DD59321190A510076A81A /* timeline.rtf */,
 			);
 			path = ebayhelper;
@@ -305,6 +348,7 @@
 				E01AE70F2106BF3D009DE772 /* LaunchScreen.storyboard in Resources */,
 				E06C4487210846A00012F029 /* Lato-Semibold.ttf in Resources */,
 				E06C448F210846A00012F029 /* Lato-Hairline.ttf in Resources */,
+				E0181B9C211BAEFD009AAAA7 /* Info.plist in Resources */,
 				E06C448E210846A00012F029 /* Lato-ThinItalic.ttf in Resources */,
 				E06C4490210846A00012F029 /* Lato-LightItalic.ttf in Resources */,
 				E06C4489210846A00012F029 /* Lato-Medium.ttf in Resources */,
@@ -397,13 +441,18 @@
 			files = (
 				E05879052114D8D3004B1B20 /* ConfirmationVC.swift in Sources */,
 				E06C446D2107E6410012F029 /* Networking.swift in Sources */,
+				E0181B92211BAEFD009AAAA7 /* YoshikoTextField.swift in Sources */,
 				E08DD59A211A60850076A81A /* UserService.swift in Sources */,
 				E0E495DA210A889700E8FAFC /* TabernaViewController.swift in Sources */,
 				E0C7D3AD2110221900BEBB4C /* TrackTableCell.swift in Sources */,
+				E0181B96211BAEFD009AAAA7 /* TextFieldEffects.swift in Sources */,
 				E08DD598211A534E0076A81A /* ExpandedInfo.swift in Sources */,
 				E08DD59621190AF20076A81A /* ExpandedItem.swift in Sources */,
 				E08DD592211900E50076A81A /* Constants.swift in Sources */,
+				E0181B98211BAEFD009AAAA7 /* MadokaTextField.swift in Sources */,
+				E0181B9B211BAEFD009AAAA7 /* IsaoTextField.swift in Sources */,
 				E0B2FA1C2113DFBA00FE9F57 /* SignUpViewController.swift in Sources */,
+				E0181B97211BAEFD009AAAA7 /* JiroTextField.swift in Sources */,
 				E0E4DA0C210EE149001240C6 /* Order.swift in Sources */,
 				E0587907211502AF004B1B20 /* WebViewController.swift in Sources */,
 				E08DD58D2117DE030076A81A /* User.swift in Sources */,
@@ -411,8 +460,13 @@
 				E0E495D4210A389800E8FAFC /* AppDelegate.swift in Sources */,
 				E08DD58B2117D8CC0076A81A /* OrderService.swift in Sources */,
 				E094A4E72109403F00BF3774 /* UPSBodyModel.swift in Sources */,
+				E0181B99211BAEFD009AAAA7 /* KaedeTextField.swift in Sources */,
+				E0181B95211BAEFD009AAAA7 /* YokoTextField.swift in Sources */,
 				E0B2FA1E2113E24A00FE9F57 /* LoginViewController.swift in Sources */,
 				E0AFB001211A7CBE00CF86C4 /* Hub.swift in Sources */,
+				E0181B9A211BAEFD009AAAA7 /* AkiraTextField.swift in Sources */,
+				E0181B93211BAEFD009AAAA7 /* HoshiTextField.swift in Sources */,
+				E0181B94211BAEFD009AAAA7 /* MinoruTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
