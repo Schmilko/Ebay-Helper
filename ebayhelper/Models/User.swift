@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase.FIRDatabase
+import FirebaseAuth
 
 class User: Codable {
     let uid: String
@@ -38,6 +39,11 @@ class User: Codable {
             }
         }
         _current = user
+    }
+    
+    static func logoutUser() {
+        try! Auth.auth().signOut()
+        UserDefaults.standard.set(nil, forKey: Constants.UserDefaults.currentUser)
     }
     
 //    static func unsetCurrent(_ user: User, writeToUserDefaults: Bool = false){

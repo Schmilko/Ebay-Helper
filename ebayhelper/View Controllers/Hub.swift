@@ -9,6 +9,10 @@
 import UIKit
 
 class Hub: UIViewController {
+    
+    @IBAction func unwindToHub(_ segue: UIStoryboardSegue) {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B65DE75EA912E4060FEFAE5 /* Pods_ebayhelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830BF0F763A5A7C318524EB0 /* Pods_ebayhelper.framework */; };
-		E01AE70A2106BF3C009DE772 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01AE7082106BF3C009DE772 /* Main.storyboard */; };
+		E0181B80211B8E67009AAAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0181B7F211B8E67009AAAA7 /* Main.storyboard */; };
 		E01AE70C2106BF3D009DE772 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01AE70B2106BF3D009DE772 /* Assets.xcassets */; };
 		E01AE70F2106BF3D009DE772 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01AE70D2106BF3D009DE772 /* LaunchScreen.storyboard */; };
 		E05879052114D8D3004B1B20 /* ConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05879042114D8D3004B1B20 /* ConfirmationVC.swift */; };
@@ -55,9 +55,9 @@
 		6511975BED94EA4A55CE6A9E /* Pods-ebayhelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ebayhelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ebayhelper/Pods-ebayhelper.debug.xcconfig"; sourceTree = "<group>"; };
 		830BF0F763A5A7C318524EB0 /* Pods_ebayhelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ebayhelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E675ABC2EED227EB5C96192 /* Pods-ebayhelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ebayhelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-ebayhelper/Pods-ebayhelper.release.xcconfig"; sourceTree = "<group>"; };
+		E0181B7F211B8E67009AAAA7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E01AE7012106BF3C009DE772 /* ebayhelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ebayhelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01AE7042106BF3C009DE772 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E01AE7092106BF3C009DE772 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E01AE70B2106BF3D009DE772 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E01AE70E2106BF3D009DE772 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E01AE7102106BF3D009DE772 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		E0E4DA0E210F7125001240C6 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				E01AE7082106BF3C009DE772 /* Main.storyboard */,
+				E0181B7F211B8E67009AAAA7 /* Main.storyboard */,
 				E01AE70D2106BF3D009DE772 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -300,6 +300,7 @@
 				E06C448D210846A00012F029 /* Lato-Heavy.ttf in Resources */,
 				E06C4486210846A00012F029 /* Lato-HeavyItalic.ttf in Resources */,
 				E06C4493210846A00012F029 /* Lato-BlackItalic.ttf in Resources */,
+				E0181B80211B8E67009AAAA7 /* Main.storyboard in Resources */,
 				E06C448B210846A00012F029 /* Lato-Light.ttf in Resources */,
 				E01AE70F2106BF3D009DE772 /* LaunchScreen.storyboard in Resources */,
 				E06C4487210846A00012F029 /* Lato-Semibold.ttf in Resources */,
@@ -310,7 +311,6 @@
 				E01AE70C2106BF3D009DE772 /* Assets.xcassets in Resources */,
 				E06C4492210846A00012F029 /* Lato-Italic.ttf in Resources */,
 				E06C4491210846A00012F029 /* Lato-HairlineItalic.ttf in Resources */,
-				E01AE70A2106BF3C009DE772 /* Main.storyboard in Resources */,
 				E06C4483210846A00012F029 /* Lato-Black.ttf in Resources */,
 				E06C4482210846A00012F029 /* Lato-Bold.ttf in Resources */,
 				E06C4488210846A00012F029 /* Lato-Thin.ttf in Resources */,
@@ -419,14 +419,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E01AE7082106BF3C009DE772 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E01AE7092106BF3C009DE772 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E01AE70D2106BF3D009DE772 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

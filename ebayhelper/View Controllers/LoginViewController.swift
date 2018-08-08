@@ -26,11 +26,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if let user = user {
                         User.setCurrent(user, writeToUserDefaults: true)
 
-                        let defaults = UserDefaults.standard
-                        defaults.set(true, forKey: Constants.UserDefaults.currentUser)
-                        print("user's login saved")
-                        defaults.synchronize()
-                        self.performSegue(withIdentifier: "loginToHome", sender: self)
+                        if let presentingVc = self.navigationController?.presentingViewController {
+                            presentingVc.dismiss(animated: true)
+                        } else {
+                            self.performSegue(withIdentifier: "showHome", sender: self)
+                        }
                     } else {
                         
                     }

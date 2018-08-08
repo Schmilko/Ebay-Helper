@@ -44,8 +44,7 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
     //    }
     //
     @objc func logOut(_ sender: Any) {
-        let user = User.current
-        User.setCurrent(user, writeToUserDefaults: false)
+        User.logoutUser()
         //        performSegue(withIdentifier: "changeToUnwind", sender: self)
         
         // need to make it modal again for this to work
