@@ -23,7 +23,7 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
     var newInfo : ExpandedInfo?
     
     var orders = [Order]() { // this is the array that is used show data in your tableview
-
+        
         didSet {
             tableView.reloadData()
         }
@@ -35,21 +35,26 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.navItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self,)
+        //        self.navItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self,)
         self.navItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.logOut(_:)))
     }
-  
-//    @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
-//        print("unwinded2login")
-//    }
-//
+    
+    //    @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
+    //        print("unwinded2login")
+    //    }
+    //
     @objc func logOut(_ sender: Any) {
         let user = User.current
         User.setCurrent(user, writeToUserDefaults: false)
-        performSegue(withIdentifier: "changeToUnwind", sender: self)
-
-//        let LoginVC = LoginViewController()
-
+        //        performSegue(withIdentifier: "changeToUnwind", sender: self)
+        
+        // need to make it modal again for this to work
+        if self.presentingViewController != nil {
+            self.performSegue(withIdentifier: "unwindToLogin", sender: nil)
+        } else {
+            self.performSegue(withIdentifier: "showLogin", sender: nil)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +64,8 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             self.orders = orders
         }
     }
-
-
+    
+    
     
     func performNetworking(order: Order) {
         Networking.doNetworkRequest(orderInfo: order) { (data, response, error) in
@@ -108,16 +113,16 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             print("Its current status is \(currentStatus)")
             
             let currentAddyJSONer = shipment["Package"]["Activity"][0]["ActivityLocation"]["Address"]
-//
-//            if currentStatus == "Order Processed: Ready for UPS" {
-//                let currentLocation = shipperAddress
-//                print(currentLocation)
-//            } else {
-                let currentCity = currentAddyJSONer["City"].stringValue
-                let currentState = currentAddyJSONer["StateProvinceCode"].stringValue
-                let currentLocation = "\(currentCity), \(currentState)"
-                print(currentLocation)
-//            }
+            //
+            //            if currentStatus == "Order Processed: Ready for UPS" {
+            //                let currentLocation = shipperAddress
+            //                print(currentLocation)
+            //            } else {
+            let currentCity = currentAddyJSONer["City"].stringValue
+            let currentState = currentAddyJSONer["StateProvinceCode"].stringValue
+            let currentLocation = "\(currentCity), \(currentState)"
+            print(currentLocation)
+            //            }
             
             let moreInfo = ExpandedInfo(currentLocation: currentLocation, shipmentWeight: shipmentWeight, shipperService: shipperService, receiverAddress: receiverAddress, shipperAddress: shipperAddress)
             
@@ -151,8 +156,10 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
     }
     
     
+    
+    
     // data transferß to other viewcontrrooôlłêrs
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier
             else {return}
@@ -165,7 +172,7 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             let destination = segue.destination as! ExpandedItem
             destination.newInfo = newInfo
             destination.order = order
-        
+            
         default:
             print("no idea")
         }
@@ -193,13 +200,14 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             guard let ref = OrderService.ref else {return}
             OrderService.delete(ref: ref)
             print("deleted from firebase")
-        
+            
         }
     }
 }
 
 extension TestViewController: TabernaDelegate {
 }
+
 
 
 
