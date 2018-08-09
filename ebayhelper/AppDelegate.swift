@@ -9,6 +9,8 @@
 //TODO: f
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        let storyboard = UIStoryboard(name: "Main", bundle: .main)
         FirebaseApp.configure()
         configureInitialRootViewController(for: window)
-        let database = Database.database()
+      
         //        if let initialViewController = storyboard.instantiateInitialViewController() {
         //            window?.rootViewController = initialViewController
         //            window?.makeKeyAndVisible()
@@ -76,28 +78,4 @@ extension AppDelegate {
         window?.makeKeyAndVisible()
     }
 }
-//
-//extension AppDelegate {
-//    func configureInitialRootViewController(for window: UIWindow?) {
-//        let defaults = UserDefaults.standard
-//
-//
-//
-//        if let user  = Auth.auth().currentUser{
-//
-//            UserService.show(forUID: user.uid) { (user) in
-//
-//                let tv = TestViewController()
-//                window?.rootViewController = tv
-//                window?.makeKeyAndVisible()
-//            }
-//        }
-//        else {
-//            let hub = Hub()
-//            window?.rootViewController = hub
-//            window?.makeKeyAndVisible()
-//        }
-//    }
-//
-//}
 

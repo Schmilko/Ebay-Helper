@@ -15,6 +15,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    
+    var keyboard: CGRect?
+    
     @IBAction func loginTapped(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (result, error) in
             if error == nil && (Auth.auth().currentUser?.isEmailVerified)! == true {
@@ -59,6 +63,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //    fileprivate func isLoggedIn() -> Bool {
 //        return UserDefaults.standard.bool(forKey: "isLoggedIn")
 //    }
+    override func viewWillAppear(_ animated: Bool) {
+        email.becomeFirstResponder()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if var keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            print(keyboardHeight)
+        
+            keyboardSize = keyboard!
+            
+            
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,19 +87,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         hideKeyboardWhenTappedAround()
         dismissKeyboard()
         
+        
         email.text = "k@grr.la"
         password.text = "poop123"
+        //
+        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: keyboard, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 60.0).isActive = true
+        
         
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
 
     /*
