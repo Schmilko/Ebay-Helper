@@ -66,7 +66,7 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
     
     
     
-    func performNetworking(order: Order) {
+    func performNetworking( order: Order) {
         Networking.doNetworkRequest(orderInfo: order) { (data, response, error) in
             
             guard error == nil else {
@@ -123,12 +123,8 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             print(currentLocation)
             //            }
             
-            let moreInfo = ExpandedInfo(currentLocation: currentLocation, shipmentWeight: shipmentWeight, shipperService: shipperService, receiverAddress: receiverAddress, shipperAddress: shipperAddress)
-            
-            self.newInfo = moreInfo
             
             let newOrder = Order(note: order.note, trackNumber: order.trackNumber, itemName: order.itemName, status: currentStatus)
-            
             OrderService.create(newOrder, completion: { (newOrder) in
                 if newOrder != nil {
                     print("order saved")
@@ -142,6 +138,18 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             }
             
             print(self.orders)
+            
+          
+            
+            let moreInfo = ExpandedInfo(currentLocation: currentLocation, shipmentWeight: shipmentWeight, shipperService: shipperService, receiverAddress: receiverAddress, shipperAddress: shipperAddress)
+            
+            self.newInfo = moreInfo
+            
+//            DispatchQueue.main.async {
+//                self.orders.append(newOrder)
+//            }
+//            
+//            print(self.orders)
         }
     }
     

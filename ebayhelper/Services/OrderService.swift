@@ -51,12 +51,12 @@ class OrderService {
     }
     
     //MARK: DELETE
-    static func sdelete(_ order: Order, completion: @escaping (Order?) -> Void) {
-        print("deleted from firebase")
-        let ref = Database.database().reference().child("users").child(User.current.uid).child("orders").childByAutoId()
-        ref.removeValue()
-    }
-    
+//    static func sdelete(_ order: Order, completion: @escaping (Order?) -> Void) {
+//        print("deleted from firebase")
+//        let ref = Database.database().reference().child("users").child(User.current.uid).child("orders").childByAutoId()
+//        ref.removeValue()
+//    }
+//
     static func delete(ref: DatabaseReference) {
         self.ref?.removeValue()
         print("deleted from firebase")

@@ -53,7 +53,7 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
         guard let note = notesTextField.text,
             let trackNumber = trackingTextField.text,
-            let itemName = itemTextField.text
+            let itemName = itemTextField.text 
             else {return}
         
         let order = Order(note: note, trackNumber: trackNumber, itemName: itemName, status: status)

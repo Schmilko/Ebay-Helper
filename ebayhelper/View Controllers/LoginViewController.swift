@@ -65,20 +65,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //    }
     override func viewWillAppear(_ animated: Bool) {
         email.becomeFirstResponder()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if var keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let keyboardHeight = keyboardSize.height
-            print(keyboardHeight)
-        
-            keyboardSize = keyboard!
-            
-            
-        }
-    }
-    
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if var keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            let keyboardHeight = keyboardSize.height
+//            print(keyboardHeight)
+//
+//            keyboardSize = keyboard!
+//
+//
+//        }
+//    }
+//
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,11 +88,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         dismissKeyboard()
         
         
-        email.text = "k@grr.la"
-        password.text = "poop123"
         //
-        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: keyboard, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 60.0).isActive = true
-        
+//        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 90.0).isActive = true
+//
+//        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 90.0).isActive = true
+//
+//        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: keyboard, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 60.0).isActive = true
         
     }
 //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
