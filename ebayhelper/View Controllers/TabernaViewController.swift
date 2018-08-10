@@ -23,9 +23,11 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var notesTextField: UITextField!
     
+    var newOrder: Order?
     var delegate: TabernaDelegate?
     var orders = [Order]()
     var status: String = ""
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,7 +59,27 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
             else {return}
         
         let order = Order(note: note, trackNumber: trackNumber, itemName: itemName, status: status)
+//
+        func createAndSave(newOrder: Order) {
+            OrderService.create(self.newOrder!, completion: { (newOrder) in
+                if newOrder != nil {
+                    print("order saved")
+                } else {
+                    print("something went wront")
+                }
+            })
+            
+            DispatchQueue.main.async {
+                self.orders.append(newOrder)
+            }
+            //self.orders = orders
+            print(self.orders)
+            
+        }
         delegate?.performNetworking(order: order)
+        createAndSave(newOrder: order)
+//        delegate?.performNetworking(order: order)
+        
         
     }
     

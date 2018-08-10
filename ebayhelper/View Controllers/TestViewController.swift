@@ -34,6 +34,7 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         //        self.navItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self,)
         self.navItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.logOut(_:)))
@@ -61,12 +62,15 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
         
         OrderService.show { (orders) in
             self.orders = orders
+            for order in orders {
+                self.performNetworking(order: order)
+            }
         }
     }
     
     
     
-    func performNetworking( order: Order) {
+    func performNetworking(order: Order) {
         Networking.doNetworkRequest(orderInfo: order) { (data, response, error) in
             
             guard error == nil else {
@@ -125,33 +129,33 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             
             
             let newOrder = Order(note: order.note, trackNumber: order.trackNumber, itemName: order.itemName, status: currentStatus)
-            OrderService.create(newOrder, completion: { (newOrder) in
-                if newOrder != nil {
-                    print("order saved")
-                } else {
-                    print("something went wront")
-                }
-            })
-            
-            DispatchQueue.main.async {
-                self.orders.append(newOrder)
-            }
-            
-            print(self.orders)
-            
+            self.newOrder = newOrder
+
           
             
             let moreInfo = ExpandedInfo(currentLocation: currentLocation, shipmentWeight: shipmentWeight, shipperService: shipperService, receiverAddress: receiverAddress, shipperAddress: shipperAddress)
             
             self.newInfo = moreInfo
             
-//            DispatchQueue.main.async {
-//                self.orders.append(newOrder)
-//            }
-//            
-//            print(self.orders)
         }
     }
+    
+//    func createAndSave(newOrder: Order) {
+//        OrderService.create(self.newOrder!, completion: { (newOrder) in
+//            if newOrder != nil {
+//                print("order saved")
+//            } else {
+//                print("something went wront")
+//            }
+//        })
+//
+//        DispatchQueue.main.async {
+//            self.orders.append(newOrder)
+//        }
+////self.orders = orders
+//        print(self.orders)
+//
+//    }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -173,12 +177,16 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
         switch identifier {
         case "soSmart":
             let destination = segue.destination as! TabernaViewController
+            destination.newOrder = newOrder
             destination.delegate = self as TabernaDelegate
+            destination.orders = orders
+            
             
         case "displayItem":
             let destination = segue.destination as! ExpandedItem
             destination.newInfo = newInfo
             destination.order = order
+            
             
         default:
             print("no idea")

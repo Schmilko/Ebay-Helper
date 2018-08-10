@@ -32,6 +32,9 @@ class OrderService {
             completion(orders)
         })
     }
+    // update and relod for ups call show, thecall ocmpletion when have orders, second function, networking
+    
+    //pull the firebase user's orders, which decodes the order object, then performs networking for each order in viewdidload, then sends them back to firebase. but I already send them back to firebase so all i need to do right now. is  call the show, with a completion that ends when the orders are all appended and it is a dictionary. is it a dictionary of my object?  i dont know.I EGJRWHIFEJODKFL;WDALFSJDKSDAL;PSFSJLKDALSFSJLKNADLFSNKFSGFEGFEGFJEGKLNFEJG
     
     //MARK: CREATE
     static func create(_ order: Order, completion: @escaping (Order?) -> Void) {
