@@ -29,7 +29,7 @@ class OrderService {
                 orders.append(orderFromSnapshot)
             }
             
-            completion(orders)
+            completion(orders.reversed())
         })
     }
     // update and relod for ups call show, thecall ocmpletion when have orders, second function, networking

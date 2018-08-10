@@ -12,7 +12,9 @@ import FirebaseAuth
 import SwiftyJSON
 
 protocol TabernaDelegate {
-    func performNetworking(order: Order)
+//    var tableView: UITableView {get set}
+    func performNetworking(order: Order, completion: @escaping (Order?)->Void)
+    func tabernaViewController(_ viewController: TabernaViewController, didFinishCreatingNew order: Order)
 }
 
 class TabernaViewController: UIViewController, UITextFieldDelegate {
@@ -25,7 +27,7 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
     
     var newOrder: Order?
     var delegate: TabernaDelegate?
-    var orders = [Order]()
+//    var orders = [Order]()
     var status: String = ""
 
     
@@ -50,6 +52,9 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
         return newString.length <= maxLength
     }
     
+    // when tableivew loads, networking is called for every order. when the person adds a new order, it writes to firebase & appends to orders array. should i have split this up even further and made the first an order
+    
+    //second issue: nil when creating first order and crashes
     
     @IBAction func closePopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -59,28 +64,51 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
             else {return}
         
         let order = Order(note: note, trackNumber: trackNumber, itemName: itemName, status: status)
-//
-        func createAndSave(newOrder: Order) {
-            OrderService.create(self.newOrder!, completion: { (newOrder) in
-                if newOrder != nil {
-                    print("order saved")
-                } else {
-                    print("something went wront")
-                }
-            })
-            
-            DispatchQueue.main.async {
-                self.orders.append(newOrder)
+        
+        OrderService.create(order, completion: { (newOrder) in
+            if let newOrder = newOrder {
+                Networking.updateUPSStatus(for: newOrder, completion: { (updatedOrder) in
+                    if let updatedOrder = updatedOrder {
+                        self.delegate?.tabernaViewController(self, didFinishCreatingNew: updatedOrder)
+                    } else {
+                        self.promptUserOfFailedOrderAdded()
+                    }
+                })
+
+            } else {
+                self.promptUserOfFailedOrderAdded()
             }
-            //self.orders = orders
-            print(self.orders)
-            
-        }
-        delegate?.performNetworking(order: order)
-        createAndSave(newOrder: order)
+            //                self.delegate?.tableView.reloadData()
+        })
+        
+        
+//        delegate?.performNetworking(order: order) { (newOrder: Order?) in
+//            guard let newOrder = newOrder else {return}
+//            self.newOrder = newOrder
+//            OrderService.create(newOrder, completion: { (newOrder) in
+//                if newOrder != nil {
+//                    print("order saved")
+//                } else {
+//                    print("something went wront")
+//                }
+////                self.delegate?.tableView.reloadData()
+//            })
+//
+////            DispatchQueue.main.async {
+//                self.orders.append(newOrder)
+////            }
+//
+//            print(self.orders)
+//
+//        }
+//
 //        delegate?.performNetworking(order: order)
-        
-        
+//
+//        createAndSave(order)
+    }
+
+    func promptUserOfFailedOrderAdded() {
+        //TODO: UIALertController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

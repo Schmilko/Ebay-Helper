@@ -14,6 +14,8 @@ struct Order {
     var trackNumber: String
     var itemName: String
     var status: String
+//    var dateAdded: Date
+    var upsInfo: ExpandedInfo? = nil
    
     //TODO:
     //1. get the snapshot key (done)

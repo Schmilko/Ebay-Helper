@@ -48,7 +48,7 @@
 		E08DD58D2117DE030076A81A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08DD58C2117DE030076A81A /* User.swift */; };
 		E08DD592211900E50076A81A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08DD591211900E50076A81A /* Constants.swift */; };
 		E08DD59421190A510076A81A /* timeline.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E08DD59321190A510076A81A /* timeline.rtf */; };
-		E08DD59621190AF20076A81A /* ExpandedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08DD59521190AF20076A81A /* ExpandedItem.swift */; };
+		E08DD59621190AF20076A81A /* ExpandedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08DD59521190AF20076A81A /* ExpandedItemViewController.swift */; };
 		E08DD598211A534E0076A81A /* ExpandedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08DD597211A534E0076A81A /* ExpandedInfo.swift */; };
 		E08DD59A211A60850076A81A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08DD599211A60850076A81A /* UserService.swift */; };
 		E094A4E72109403F00BF3774 /* UPSBodyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094A4E62109403F00BF3774 /* UPSBodyModel.swift */; };
@@ -110,7 +110,7 @@
 		E08DD58C2117DE030076A81A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E08DD591211900E50076A81A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E08DD59321190A510076A81A /* timeline.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = timeline.rtf; sourceTree = "<group>"; };
-		E08DD59521190AF20076A81A /* ExpandedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedItem.swift; sourceTree = "<group>"; };
+		E08DD59521190AF20076A81A /* ExpandedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedItemViewController.swift; sourceTree = "<group>"; };
 		E08DD597211A534E0076A81A /* ExpandedInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedInfo.swift; sourceTree = "<group>"; };
 		E08DD599211A60850076A81A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E094A4E62109403F00BF3774 /* UPSBodyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPSBodyModel.swift; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 				E0B2FA1D2113E24A00FE9F57 /* LoginViewController.swift */,
 				E0587906211502AF004B1B20 /* WebViewController.swift */,
 				E06C446E2107E7220012F029 /* TestViewController.swift */,
-				E08DD59521190AF20076A81A /* ExpandedItem.swift */,
+				E08DD59521190AF20076A81A /* ExpandedItemViewController.swift */,
 				E0E495D9210A889700E8FAFC /* TabernaViewController.swift */,
 				E0AFB000211A7CBE00CF86C4 /* Hub.swift */,
 			);
@@ -447,7 +447,7 @@
 				E0C7D3AD2110221900BEBB4C /* TrackTableCell.swift in Sources */,
 				E0181B96211BAEFD009AAAA7 /* TextFieldEffects.swift in Sources */,
 				E08DD598211A534E0076A81A /* ExpandedInfo.swift in Sources */,
-				E08DD59621190AF20076A81A /* ExpandedItem.swift in Sources */,
+				E08DD59621190AF20076A81A /* ExpandedItemViewController.swift in Sources */,
 				E08DD592211900E50076A81A /* Constants.swift in Sources */,
 				E0181B98211BAEFD009AAAA7 /* MadokaTextField.swift in Sources */,
 				E0181B9B211BAEFD009AAAA7 /* IsaoTextField.swift in Sources */,
