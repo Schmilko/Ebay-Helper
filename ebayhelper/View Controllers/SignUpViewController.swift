@@ -16,6 +16,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var passwordConfirm: UITextField!
     
+    @IBOutlet weak var signupButton: UIButton!
+    
     @IBAction func signUpTapped(_ sender: UIButton) {
         if password.text != passwordConfirm.text {
             let alertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
@@ -44,11 +46,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.email.delegate = self
-        self.password.delegate = self
-        self.passwordConfirm.delegate = self
-        hideKeyboardWhenTappedAround()
-        dismissKeyboard()
+        self.email?.delegate = self
+        self.password?.delegate = self
+        self.passwordConfirm?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        email.becomeFirstResponder()
+        email.setBottomBorder()
+        password.setBottomBorder()
+        passwordConfirm.setBottomBorder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,10 +64,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        
+        if textField == email {
+            email.resignFirstResponder()
+            password.becomeFirstResponder()
+        } else if textField == password {
+            password.resignFirstResponder()
+            passwordConfirm.becomeFirstResponder()
+        } else if textField == passwordConfirm {
+            signUpTapped(signupButton)
+        }
         return true
     }
+}
     
+
 
     
     /*
@@ -73,5 +91,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
-}
+
 

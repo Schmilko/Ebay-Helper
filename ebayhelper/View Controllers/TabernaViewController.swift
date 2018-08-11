@@ -31,26 +31,39 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
     var status: String = ""
 
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func textField(_ itemTextField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 15
-        let currentString: NSString = itemTextField.text! as NSString
-        let newString: NSString =
-            currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
-    }
-    
-    func newTextField(_ notesTextField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 15
-        let currentString: NSString = itemTextField.text! as NSString
-        let newString: NSString =
-            currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let maxLength = 15
+//        let currentString: NSString = itemTextField.text! as NSString
+//        let newString: NSString =
+//            currentString.replacingCharacters(in: range, with: string) as NSString
+//        return newString.length <= maxLength
+//    }
+//
+////        func textField(_ textField: UITextField) {
+////        if textField.text!.count < 10 {
+////
+////                let alertController = UIAlertController(title: "Error", message: "Input too short.", preferredStyle: .alert)
+////                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+////
+////                alertController.addAction(defaultAction)
+////                self.present(alertController, animated: true, completion: nil)
+////        }
+////
+////    }
+//
+//    func newTextField(_ notesTextField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let maxLength = 15
+//        let currentString: NSString = itemTextField.text! as NSString
+//        let newString: NSString =
+//            currentString.replacingCharacters(in: range, with: string) as NSString
+//        return newString.length <= maxLength
+//    }
     
     // when tableivew loads, networking is called for every order. when the person adds a new order, it writes to firebase & appends to orders array. should i have split this up even further and made the first an order
     
@@ -78,33 +91,11 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
             } else {
                 self.promptUserOfFailedOrderAdded()
             }
-            //                self.delegate?.tableView.reloadData()
+//            self.delegate?.tableView.reloadData()
         })
         
         
-//        delegate?.performNetworking(order: order) { (newOrder: Order?) in
-//            guard let newOrder = newOrder else {return}
-//            self.newOrder = newOrder
-//            OrderService.create(newOrder, completion: { (newOrder) in
-//                if newOrder != nil {
-//                    print("order saved")
-//                } else {
-//                    print("something went wront")
-//                }
-////                self.delegate?.tableView.reloadData()
-//            })
-//
-////            DispatchQueue.main.async {
-//                self.orders.append(newOrder)
-////            }
-//
-//            print(self.orders)
-//
-//        }
-//
-//        delegate?.performNetworking(order: order)
-//
-//        createAndSave(order)
+
     }
 
     func promptUserOfFailedOrderAdded() {
@@ -131,7 +122,6 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         
         //MARK: REMOVE LATER
-        trackingTextField.text = "1Z09217F0301556366"
         
         // Do any additional setup after loading the view.
     }

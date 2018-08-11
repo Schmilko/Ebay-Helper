@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     
     var keyboard: CGRect?
-    
+    // the first time it's deleted, it doesnt delete. the second time it deletes but theres nothimg in the row
     @IBAction func loginTapped(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (result, error) in
             if error == nil && (Auth.auth().currentUser?.isEmailVerified)! == true {
@@ -59,7 +59,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
+    override func viewDidLayoutSubviews() {
+        email.setBottomBorder()
+        password.setBottomBorder()
+    }
 //    fileprivate func isLoggedIn() -> Bool {
 //        return UserDefaults.standard.bool(forKey: "isLoggedIn")
 //    }
@@ -84,22 +87,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.password?.delegate = self
         self.email?.delegate = self
+        
         hideKeyboardWhenTappedAround()
         dismissKeyboard()
         
-        
-        //
-//        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 90.0).isActive = true
-//
-//        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 90.0).isActive = true
-//
-//        NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: keyboard, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 60.0).isActive = true
-        
+    
     }
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        return false
-//    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -118,5 +112,50 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == email { // Switch focus to other text field
+            email.resignFirstResponder()
+            password.becomeFirstResponder()
+        } else if textField == password {
+            loginTapped(loginButton)
+        }
+        return true
+    }
 
+
+}
+//extension UITextField {
+//    func setBottomBorder() {
+//        self.borderStyle = .line
+//        self.layer.masksToBounds = false
+//        self.layer.shadowColor = newSwiftColor.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+//        self.layer.shadowOpacity = 1.0
+//        self.layer.shadowRadius = 0.0
+//    }
+//}
+//
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+
+        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+    }
+}
+
+extension UITextField
+{
+    func setBottomBorder()
+    {
+        self.borderStyle = UITextBorderStyle.none
+        self.backgroundColor = UIColor.clear
+        let width: CGFloat = 1.0
+        let newSwiftColor = UIColor(red: 7, green: 160, blue: 195)
+        let borderLine = UIView(frame: CGRect(x: 0, y: self.frame.height - width, width: self.frame.width, height: width))
+        borderLine.backgroundColor = newSwiftColor
+        self.addSubview(borderLine)
+    }
 }
