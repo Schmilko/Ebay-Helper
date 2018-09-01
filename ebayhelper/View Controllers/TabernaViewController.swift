@@ -118,6 +118,7 @@ class TabernaViewController: UIViewController, UITextFieldDelegate {
         trackingTextField.delegate = self
         itemTextField.delegate = self
         notesTextField.delegate = self
+//        trackingTextField.text = "1Z09217F0301556366"
         
         self.hideKeyboardWhenTappedAround()
         

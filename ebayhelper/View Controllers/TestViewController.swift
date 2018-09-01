@@ -133,7 +133,7 @@ class TestViewController: UITableViewController, UIPopoverPresentationController
             OrderService.delete(ref: ref)
             print("deleted from firebase")
             
-        }
+         }
     }
 }
 
